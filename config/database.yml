@@ -1,0 +1,24 @@
+default: &default
+   adapter: postgresql
+   encoding: unicode
+  
+development:
+   adapter: postgresql
+   encoding: unicode
+   database: musicrec_development
+   username: rubyuser
+   password: rubyuser
+
+test:
+   adapter: postgresql
+   encoding: unicode
+   database: musicrec_test
+   username: rubyuser
+   password: rubyuser
+ 
+production:
+   adapter: postgresql
+   encoding: unicode
+   database: musicrec_production
+   username: rubyuser
+   password: rubyuser
