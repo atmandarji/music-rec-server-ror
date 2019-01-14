@@ -1,6 +1,7 @@
 class UserController < ApplicationController
 	require 'uri'
 	require 'net/http'
+	require 'jwt'
 
 	def signup
 		information = request.raw_post
@@ -42,7 +43,9 @@ class UserController < ApplicationController
 				json_message = {:message => "Wrong password"}
 				render :json => json_message, :status => 400
 			else
-				json_message = {:message => "Welcome"}
+				secret_key = "masd82348$asldfja"
+				token = JWT.encode({userid: userid}, secret_key, "HS256")
+				json_message = {:token => token}
 				render :json => json_message, :status => 200
 			end
 		else
